@@ -1,0 +1,60 @@
+// Layout
+// ------------------------
+/*** Layout ***/
+
+/***
+  * Grid System
+***/
+//
+@use "../helpers" as *;
+
+@layer layout {
+  //** Wrapper
+  .#{$prefix}wrapper {
+    --_wrapper-max-width: #{$wrapper-max-width};
+    --_wrapper-padding: #{$wrapper-min-margin-inline} * 2;
+
+    width: min(100% - var(--_wrapper-padding), var(--_wrapper-max-width));
+    margin-inline: auto;
+
+    &[data-type="narrow"] {
+      --_wrapper-max-width: #{$wrapper-max-width-narrow};
+    }
+    &[data-type="wide"] {
+      --_wrapper-max-width: #{$wrapper-max-width-wide};
+    }
+    &[data-type="full-bleed"] {
+      --_wrapper-max-width: 100%;
+      --_wrapper-padding: 0;
+    }
+
+    &:not([data-type]) {
+      @include mq(sm) {
+        --_wrapper-max-width: 33.75rem;
+      }
+      @include mq(md) {
+        --_wrapper-max-width: 45rem;
+      }
+      @include mq(lg) {
+        --_wrapper-max-width: 60rem;
+      }
+      @include mq(xl) {
+        --_wrapper-max-width: 71.25rem;
+      }
+      @include mq(xxl) {
+        --_wrapper-max-width: 82.5rem;
+      }
+    }
+
+    &[data-type] {
+      @include mq(sm, max) {
+        width: 100%;
+      }
+    }
+  }
+
+  //** Flow
+  .#{$prefix}flow > *:where(:not(:first-child)) {
+    margin-block-start: var(--flow-spacer, 1em);
+  }
+}

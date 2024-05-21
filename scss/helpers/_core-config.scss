@@ -1,0 +1,215 @@
+/// CORE CONFIG
+/// This powers everything from utility class generation to breakpoints
+/// to enabling/disabling pre-built components/utilities.
+///
+///
+
+@use "variables" as *;
+
+$core-config: (
+  "namespace": (
+    "prefix": "",
+    "classes": false,
+    "css-vars": true,
+  ),
+  "css-vars": (
+    "clr": $light,
+    "ff": (
+      "base": $ff-base,
+    ),
+    "fs": $type-scale,
+    "fw": $font-weights,
+    "spacer": $spacers,
+    "border-radius": $border-radius,
+    "shadow": $box-shadow-1,
+    "scheme-color": $scheme-color,
+    "transition": $transitions,
+    "themes": (
+      "default": (
+        "tokens": (
+          "clr": $active-theme,
+        ),
+      ),
+      "dark": (
+        "prefers-color-scheme": "dark",
+        "tokens": (
+          "color": $dark,
+        ),
+      ),
+    ),
+  ),
+  "d": (
+    "items": (
+      "block": "block",
+      "flex": "flex",
+      "grid": "grid",
+      "none": "none",
+    ),
+    "output": "responsive",
+    "property": "display",
+  ),
+  "align-items": (
+    "items": (
+      "center": "center",
+    ),
+    "output": "standard",
+    "property": "align-items",
+  ),
+  "justify-items": (
+    "items": (
+      "center": "center",
+    ),
+    "output": "standard",
+    "property": "justify-items",
+  ),
+  "justify-content": (
+    "items": (
+      "start": "start",
+      "center": "center",
+    ),
+    "output": "responsive",
+    "property": "justify-content",
+  ),
+  "gap": (
+    "items": "spacer",
+    "css-vars": true,
+    "output": "responsive",
+    "property": "gap",
+  ),
+  "pb": (
+    "items": "spacer",
+    "css-vars": true,
+    "output": "responsive",
+    "property": "padding-block",
+  ),
+  "pb-start": (
+    "items": "spacer",
+    "css-vars": true,
+    "output": "responsive",
+    "property": "padding-block-start",
+  ),
+  "pb-end": (
+    "items": "spacer",
+    "css-vars": true,
+    "output": "responsive",
+    "property": "padding-block-end",
+  ),
+  "pi": (
+    "items": "spacer",
+    "css-vars": true,
+    "output": "responsive",
+    "property": "padding-inline",
+  ),
+  "pi-start": (
+    "items": "spacer",
+    "css-vars": true,
+    "output": "responsive",
+    "property": "padding-inline-start",
+  ),
+  "pi-end": (
+    "items": "spacer",
+    "css-vars": true,
+    "output": "responsive",
+    "property": "padding-inline-end",
+  ),
+  "mb": (
+    "items": "spacer",
+    "css-vars": true,
+    "output": "responsive",
+    "property": "margin-block",
+  ),
+  "mb-start": (
+    "items": "spacer",
+    "css-vars": true,
+    "output": "responsive",
+    "property": "margin-block-start",
+  ),
+  "mb-end": (
+    "items": "spacer",
+    "css-vars": true,
+    "output": "responsive",
+    "property": "margin-block-end",
+  ),
+  "mi": (
+    "items": "spacer",
+    "css-vars": true,
+    "output": "responsive",
+    "property": "margin-inline",
+  ),
+  "mi-start": (
+    "items": "spacer",
+    "css-vars": true,
+    "output": "responsive",
+    "property": "margin-inline-start",
+  ),
+  "mi-end": (
+    "items": "spacer",
+    "css-vars": true,
+    "output": "responsive",
+    "property": "margin-inline-end",
+  ),
+  "border-radius": (
+    "items": "border-radius",
+    "css-vars": true,
+    "output": "standard",
+    "property": "border-radius",
+  ),
+  "bg": (
+    "items": "clr",
+    "css-vars": true,
+    "output": "standard",
+    "property": "background-color",
+  ),
+  "text": (
+    "items": "clr",
+    "css-vars": true,
+    "output": "standard",
+    "property": "color",
+  ),
+  "fs": (
+    "items": "fs",
+    "css-vars": true,
+    "output": "responsive",
+    "property": "font-size",
+  ),
+  "fw": (
+    "items": "fw",
+    "css-vars": true,
+    "output": "standard",
+    "property": "font-weight",
+  ),
+  "text-align": (
+    "items": (
+      "center": "center",
+    ),
+    "output": "responsive",
+    "property": "text-align",
+  ),
+  "text-transform": (
+    "items": (
+      "uppercase": "uppercase",
+    ),
+    "output": "standard",
+    "property": "text-transform",
+  ),
+
+  "box-shadow": (
+    "items": (
+      "100": $box-shadow-1,
+    ),
+    "output": "standard",
+    "property": "box-shadow",
+  ),
+  "breakpoints": (
+    "sm": "(width >= 36em)",
+    "md": "(width >= 48em)",
+    "lg": "(width >= 62em)",
+    "xl": "(width >= 75em)",
+    "xxl": "(width >= 87.5em)",
+  ),
+) !default;
+
+$css-vars: map-get($core-config, "css-vars");
+
+$generate-css-vars: true;
+$generate-utility-classes: true;

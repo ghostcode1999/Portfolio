@@ -1,0 +1,18 @@
+// Utilities
+// ------------------------
+/*** Utilities ***/
+/*** Even Columns ***/
+//
+@use "helpers" as *;
+
+@layer utilities {
+  .#{$prefix}even-columns {
+    display: grid;
+    gap: var(--grid-gap, $grid-gap);
+
+    @include mq(lg) {
+      grid-auto-flow: column;
+      grid-auto-columns: 1fr;
+    }
+  }
+}

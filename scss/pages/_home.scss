@@ -1,0 +1,313 @@
+// Pages
+// ------------------------
+/*** Home Page ***/
+//
+@use "helpers" as *;
+
+/*----------------------------
+  #HERO
+-----------------------------*/
+
+.hero {
+  padding-block-end: 4.5em;
+  background-image: url("../images/hero-bg.jpg");
+  background-size: cover;
+
+  @include mq(lg, max) {
+    text-align: center;
+  }
+}
+
+.hero__img {
+  position: relative;
+  align-self: stretch;
+
+  @include mq(lg, max) {
+    order: -1;
+  }
+
+  @include mq(lg) {
+    display: grid;
+    grid-template-columns: [success-start] auto [img-start] 4em [success-end] 1fr [projects-start] auto [img-end] 2em [projects-end];
+    grid-template-rows: [img-start] 1em [success-start] auto [success-end] 1fr [projects-start] auto [projects-end] 1em [img-end];
+  }
+}
+
+.hero__img-pic {
+  grid-area: img;
+
+  img {
+    height: 100%;
+    border-radius: $border-radius-2;
+  }
+
+  &::before {
+    @extend %img-label;
+    translate: -10px;
+  }
+
+  &::after {
+    inset-block-end: -4rem;
+    inset-inline-start: -4rem;
+    width: 8rem;
+    aspect-ratio: 1;
+    background-image: url("../images/rotate-img.png");
+    background-size: contain;
+    animation: rotate infinite 12s linear;
+  }
+
+  @keyframes rotate {
+    100% {
+      rotate: -360deg;
+    }
+  }
+}
+
+.hero__img-label {
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: $spacer-3;
+  width: fit-content;
+  padding: $spacer-3 $spacer-5;
+  border-radius: $border-radius-2;
+  background: $clr-neutral-000;
+  color: $clr-neutral-800;
+  font-size: $fs-300;
+  font-weight: $fw-semibold;
+  line-height: 1.1;
+
+  @include mq(lg, max) {
+    display: none;
+  }
+
+  &:first-child {
+    grid-area: success;
+  }
+
+  &:last-child {
+    grid-area: projects;
+  }
+}
+
+/*----------------------------
+  #ABOUT
+-----------------------------*/
+
+.about__imgs {
+  @include mq(md) {
+    display: grid;
+    grid-template-columns: [accent-img-start] 4rem [main-img-start] 8rem [accent-img-end] 1fr [main-img-end];
+    grid-template-rows: [main-img-start] 1fr [accent-img-start] 4rem [main-img-end] auto [accent-img-end];
+  }
+
+  img {
+    border-radius: $border-radius-2;
+  }
+
+  > img:first-of-type {
+    grid-area: main-img;
+    height: 100%;
+  }
+  > img:last-of-type {
+    grid-area: accent-img;
+  }
+
+  &::before {
+    --_label-bg: #{$clr-yellow-400};
+    @extend %img-label;
+  }
+
+  &::after {
+    --_label-bg: #{$clr-primary-800};
+    @extend %img-label;
+    inset-block-end: -2.25rem;
+    inset-inline-start: 12.25rem;
+  }
+}
+
+/*----------------------------
+  #PORTFOLIO
+-----------------------------*/
+.portfolio-item {
+  position: relative;
+  display: grid;
+  align-content: center;
+  padding: 5em 4em;
+  border-radius: $border-radius-4;
+  background-color: $clr-neutral-800;
+  overflow: hidden;
+
+  @include mq(sm, max) {
+    padding-inline: 1em;
+  }
+
+  &:is(:hover, :focus-visible) {
+    img {
+      scale: 1.2;
+    }
+  }
+
+  .portfolio__list li:nth-child(odd) & {
+    justify-items: end;
+  }
+
+  p {
+    margin-block-start: 1em;
+    font-size: $fs-300;
+    font-weight: $fw-semibold;
+    text-transform: uppercase;
+  }
+
+  img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transition: $transition-250;
+  }
+}
+
+.portfolio-item__content {
+  z-index: 3;
+  width: min(25ch, 100%);
+}
+
+/*----------------------------
+  #SKILLS
+-----------------------------*/
+.skills-list {
+  @include mq(md) {
+    columns: 2;
+    column-gap: $spacer-8;
+  }
+}
+
+.skill {
+  h5 {
+    margin-block-end: 0.75em;
+    font-weight: $fw-semibold;
+  }
+}
+
+.skill__progress {
+  height: 8px;
+  border-radius: 100vw;
+  background: $clr-neutral-000;
+
+  span {
+    position: relative;
+    display: block;
+    height: 100%;
+    border-radius: 100vw;
+    background: $clr-primary-700;
+    transform-origin: left;
+
+    scale: 0 1;
+    transition: scale 500ms linear;
+
+    &::before {
+      content: attr(data-progress);
+      position: absolute;
+      inset-block-end: calc(100% + 0.75em);
+      inset-inline-start: 0;
+      font-size: $fs-300;
+      font-weight: $fw-bold;
+      opacity: 0;
+
+      transition: all 300ms 200ms linear;
+    }
+
+    .show-progress & {
+      scale: 1 1;
+
+      &::before {
+        inset-inline-start: auto;
+        inset-inline-end: 0;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+/*----------------------------
+  #CONTACT
+-----------------------------*/
+
+.contact-form {
+  input,
+  textarea {
+    width: 100%;
+    padding: 1em 1.5em;
+    border-radius: $border-radius-1;
+    color: $clr-neutral-800;
+    font-size: $fs-300;
+  }
+}
+
+.contact-list {
+  > * {
+    display: flex;
+    align-items: center;
+    gap: $spacer-3;
+
+    @include mq(sm, max) {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  p,
+  a {
+    color: $clr-neutral-300;
+    font-size: $fs-300;
+  }
+
+  a:is(:hover, :focus-visible) {
+    color: $clr-neutral-000;
+  }
+}
+
+.contact-icon {
+  display: grid;
+  place-content: center;
+  width: $spacer-8;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: $clr-secondary-300;
+}
+
+/*----------------------------
+  #BLOG
+-----------------------------*/
+.blog-card {
+  span {
+    font-size: $fs-300;
+    color: $clr-primary-700;
+  }
+
+  p {
+    margin-block-start: $spacer-1;
+    font-weight: $fw-medium;
+    transition: $transition-250;
+
+    &:is(:hover, :focus-visible) {
+      color: $clr-primary-700;
+    }
+  }
+}
+
+.blog-img {
+  border-radius: $border-radius-2;
+  overflow: hidden;
+
+  img {
+    transition: $transition-250;
+  }
+
+  &:is(:hover, :focus-visible) {
+    img {
+      scale: 1.1;
+    }
+  }
+}

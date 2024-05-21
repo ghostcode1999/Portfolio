@@ -1,0 +1,114 @@
+// Components
+// ------------------------
+/***
+  * Primary Navigation
+***/
+@use "helpers" as *;
+
+@layer components {
+  .#{$prefix}primary-nav {
+    --_nav-gap: #{$navigation-gap};
+    --_nav-color: #{$navigation-color};
+    --_nav-color-hover: #{$navigation-color-hover};
+    --_nav-font-size: #{$navigation-font-size};
+    --_nav-font-weight: #{$navigation-font-weight};
+    --_nav-text-transform: #{$navigation-text-transform};
+    --_nav-text-decoration: #{$navigation-text-decoration};
+
+    list-style: none;
+    transition: $transition-250;
+
+    @include mq(lg, max) {
+      position: absolute;
+      inset-block-start: calc(100% + $spacer-3);
+      inset-inline-end: 0;
+      width: 100%;
+      padding: 1em;
+      border-end-start-radius: $border-radius-3;
+      border-end-end-radius: $border-radius-3;
+      background: $clr-secondary-300;
+
+      clip-path: inset(0 0 100% 0);
+
+      .primary-header.is-active & {
+        background: $clr-neutral-800;
+      }
+
+      .nav-toggler.is-active + & {
+        clip-path: inset(0 0 0 0);
+      }
+    }
+  }
+
+  .#{$prefix}nav-list {
+    display: flex;
+    flex-direction: column;
+    font-size: var(--_nav-font-size);
+    font-weight: var(--_nav-font-weight);
+
+    a {
+      display: inline-block;
+      color: var(--_nav-color);
+      text-decoration: var(--_nav-text-decoration);
+      @if (var(--_nav-text-transform)) {
+        text-transform: var(--_nav-text-transform);
+      }
+
+      transition: $transition-250;
+
+      &:is(:hover, :focus-visible, .is-active) {
+        color: var(--_nav-color-hover);
+      }
+    }
+
+    @include mq(lg, max) {
+      a {
+        padding: 0.75em 1em;
+      }
+    }
+
+    @include mq(lg) {
+      align-items: center;
+      flex-direction: row;
+      gap: var(--_nav-gap);
+    }
+  }
+}
+
+.nav-toggler {
+  display: grid;
+  gap: 4px;
+
+  @include mq(lg) {
+    display: none;
+  }
+
+  span {
+    display: inline-block;
+    height: 4px;
+    width: 26px;
+    border-radius: 100vw;
+    background: $clr-neutral-000;
+
+    transition: $transition-250;
+  }
+
+  &.is-active span {
+    &:nth-of-type(1),
+    &:nth-of-type(3) {
+      background: $clr-primary-700;
+    }
+
+    &:nth-of-type(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    &:nth-of-type(2) {
+      opacity: 0;
+    }
+
+    &:nth-of-type(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
+}

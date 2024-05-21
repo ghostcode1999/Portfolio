@@ -1,0 +1,24 @@
+// Helpers
+// ------------------------
+//*** Placeholders ***//
+//
+
+//*** Variables
+@use "variables" as *;
+//*** Functions
+@use "functions" as *;
+//*** Mixins
+@use "mixins" as *;
+
+%img-label {
+  inset-block-end: 100%;
+  inset-inline-start: 100%;
+  width: 2.25rem;
+  aspect-ratio: 1;
+  border-radius: $border-radius-2;
+  background: var(--_label-bg, $clr-neutral-000);
+
+  @include mq(lg, max) {
+    display: none;
+  }
+}

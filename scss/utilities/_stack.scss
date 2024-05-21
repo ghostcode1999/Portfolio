@@ -1,0 +1,17 @@
+// Utilities
+// ------------------------
+/*** Stack ***/
+//
+@use "helpers" as *;
+
+@layer utilities {
+  .#{$prefix}stack {
+    display: grid;
+    grid-template-areas: "stack";
+    place-content: center;
+
+    > * {
+      grid-area: stack;
+    }
+  }
+}

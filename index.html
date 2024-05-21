@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!---------------------------------
+      - Template Name: Portfolio
+      - Updated: May 2024 
+      - Author: Ghostcode
+      - PSD Designer: Codewithsadee 
+    ------------------------------------>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Primary meta tags -->
+    <title>Ethan Ward | Web Developer from New York</title>
+    <meta name="title" content="Ethan Ward | Web Developer from New York" />
+    <meta
+      name="description"
+      content="This is a portfolio template made by ghostcode"
+    />
+    <meta name="keywords" content="portfolio, web, developer" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- External Libraries CSS Files -->
+    <link rel="stylesheet" href="vendors/fontawesome/all.min.css" />
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Start Header -->
+    <header class="primary-header" data-header>
+      <div class="primary-header__inner | wrapper">
+        <a href="index.html" class="logo | fs-500 fw-bold">Ethan Ward</a>
+        <button class="nav-toggler" aria-label="Toggle Menu" data-nav-toggler>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="primary-nav">
+          <ul class="nav-list">
+            <li>
+              <a href="#" class="is-active" data-nav-link data-scrollto="hero"
+                >Home</a
+              >
+            </li>
+            <li><a href="#" data-nav-link data-scrollto="about">About</a></li>
+            <li>
+              <a href="#" data-nav-link data-scrollto="portfolio">Portfolio</a>
+            </li>
+            <li><a href="#" data-nav-link data-scrollto="skills">Skills</a></li>
+            <li>
+              <a href="#" data-nav-link data-scrollto="contact">Contact</a>
+            </li>
+            <li><a href="#" data-nav-link data-scrollto="blog">Blog</a></li>
+            <li class="d-none lg-d-block">
+              <button class="btn" data-variant="primary">Download CV</button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <main>
+      <!-- Start Hero -->
+      <section class="hero" data-section="hero">
+        <div class="wrapper even-columns | align-items-center">
+          <div class="flow">
+            <h1 class="heading-2">
+              <span class="fw-normal">Hello I'm</span><br />
+              Ethan Ward
+            </h1>
+            <h2 class="fs-500">Web Developer from New York</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
+              deleniti, cum veniam quos fuga dolor!
+            </p>
+            <div
+              class="flex-group my-auto | justify-content-center lg-justify-content-start gap-7 mb-start-5"
+            >
+              <a
+                href="#"
+                class="btn"
+                data-variant="secondary"
+                data-scrollto=".contact"
+                >Get a Quote</a
+              >
+              <a href="#" class="fs-300 fw-semibold" data-scrollto=".about"
+                >About Me</a
+              >
+            </div>
+          </div>
+
+          <div class="hero__img">
+            <div class="hero__img-label | d-none lg-d-block">
+              <span class="text-cyan-400 fs-800 fw-normal">12</span>
+              <p>Years of<br />Success</p>
+            </div>
+            <div class="hero__img-pic | has-pseudo">
+              <img
+                src="images/hero-banner.jpg"
+                alt="Ethan's photo"
+                loading="lazy"
+              />
+            </div>
+            <div class="hero__img-label">
+              <span class="text-primary-600 fs-800 fw-normal">800+</span>
+              <p>Projects<br />Completed</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Hero -->
+
+      <!-- Start About -->
+      <section class="about | section" data-section="about">
+        <div class="wrapper even-columns" style="--grid-gap: 5rem">
+          <div class="about__imgs | has-pseudo">
+            <img
+              src="images/about-banner.jpg"
+              alt="Ethan's photo"
+              loading="lazy"
+            />
+            <img
+              src="images/absolute-image.jpg"
+              alt="Ethan's photo"
+              class="d-none md-d-block"
+            />
+          </div>
+
+          <div class="flow">
+            <div class="section__heading">
+              <h3 class="section__title">I'm a Developer</h3>
+              <h4 class="section__subtitle">
+                I Develop Application that Help People
+              </h4>
+            </div>
+            <p class="text-neutral-400">
+              Dliquip ex ea commo do conse namber onequa ute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatu epteur sint occaecat cupidatat
+            </p>
+            <p class="text-neutral-400">
+              Krnon proident, sunt in culpa qui officia deserunt mollit anim id
+              est laborum. Sed ut perspiciatis unde omnis
+            </p>
+            <button
+              class="btn | mb-start-5"
+              data-variant="secondary"
+              data-scrollto="#portfolio"
+            >
+              View Portfolio
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- End About -->
+
+      <!-- Start Portfolio -->
+      <section class="portfolio | section" data-section="portfolio">
+        <div class="wrapper">
+          <div
+            class="section__heading | wrapper | pi-0 mb-end-8 text-align-center"
+            data-type="narrow"
+          >
+            <h3 class="section__title">Portfolio</h3>
+            <h4 class="section__subtitle">My Amazing Works</h4>
+            <p class="section__desc">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil
+              doloremque, et tempore unde soluta consectetur.
+            </p>
+          </div>
+          <ul class="portfolio__list | flow">
+            <li>
+              <a href="#" class="portfolio-item">
+                <img src="images/portfolio-1.jpg" alt="#" />
+                <div class="portfolio-item__content">
+                  <h5 class="section__title">Vimeo</h5>
+                  <h6 class="section__subtitle">
+                    Web Application for Desiverse
+                  </h6>
+                  <p>View Project</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="portfolio-item">
+                <img src="images/portfolio-2.jpg" alt="#" />
+                <div class="portfolio-item__content">
+                  <h5 class="section__title">Soundcloud</h5>
+                  <h6 class="section__subtitle">
+                    Web Application for Desiverse
+                  </h6>
+                  <p>View Project</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="portfolio-item">
+                <img src="images/portfolio-3.jpg" alt="#" />
+                <div class="portfolio-item__content">
+                  <h5 class="section__title">Details</h5>
+                  <h6 class="section__subtitle">
+                    Web Application for Desiverse
+                  </h6>
+                  <p>View Project</p>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- End Portfolio -->
+
+      <!-- Start Skills -->
+      <section class="skills | section" data-section="skills">
+        <div class="wrapper">
+          <div
+            class="section__heading | wrapper | mb-end-8 text-align-center"
+            data-type="narrow"
+          >
+            <h3 class="section__title">My Skills</h3>
+            <h4 class="section__subtitle">I Develop Skills Regularly</h4>
+            <p class="section__desc">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil
+              doloremque, et tempore unde soluta consectetur.
+            </p>
+          </div>
+          <ul class="skills-list | flow" style="--flow-spacer: var(--spacer-5)">
+            <li class="skill">
+              <h5>CSS</h5>
+              <div class="skill__progress">
+                <span data-progress="95%"></span>
+              </div>
+            </li>
+            <li class="skill">
+              <h5>MongoDB</h5>
+              <div class="skill__progress">
+                <span data-progress="90%"></span>
+              </div>
+            </li>
+            <li class="skill">
+              <h5>PHP</h5>
+              <div class="skill__progress">
+                <span data-progress="80%"></span>
+              </div>
+            </li>
+            <li class="skill">
+              <h5>React</h5>
+              <div class="skill__progress">
+                <span data-progress="75%"></span>
+              </div>
+            </li>
+            <li class="skill">
+              <h5>Python</h5>
+              <div class="skill__progress">
+                <span data-progress="70%"></span>
+              </div>
+            </li>
+            <li class="skill">
+              <h5>JavaScript</h5>
+              <div class="skill__progress">
+                <span data-progress="75%"></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- End Skills -->
+
+      <!-- Start Contact -->
+      <section class="contact | section" data-section="contact">
+        <div
+          class="wrapper | pi-4 sm-pi-8 pb-8 border-radius-4 bg-secondary-700"
+        >
+          <div class="section__heading | mb-end-6">
+            <h3 class="section__title">Don't be shy</h3>
+            <h4 class="section__subtitle">Drop Me a Line</h4>
+          </div>
+          <div class="even-columns | gap-8">
+            <form action="#" class="contact-form | d-grid gap-3">
+              <input type="text" placeholder="Name" name="Name" required />
+              <input type="email" placeholder="Email" name="Email" required />
+              <textarea
+                name="message"
+                placeholder="Message"
+                required
+              ></textarea>
+              <button
+                class="btn | border-radius-1"
+                data-variant="primary-inverse"
+                type="submit"
+              >
+                Submit Message
+              </button>
+            </form>
+
+            <ul class="contact-list | flow">
+              <li>
+                <span class="contact-icon">
+                  <i class="fa fa-map-location-dot"></i>
+                </span>
+                <div>
+                  <h4 class="mb-end-1">Address</h4>
+                  <p>20, London, United Kingdom</p>
+                </div>
+              </li>
+              <li>
+                <span class="contact-icon">
+                  <i class="fa fa-envelope-open"></i>
+                </span>
+                <div>
+                  <h4 class="mb-end-1">Email</h4>
+                  <a href="mailto: hello@ethan.com">hello@ethan.com</a>
+                </div>
+              </li>
+              <li>
+                <span class="contact-icon">
+                  <i class="fa fa-phone-volume"></i>
+                </span>
+                <div>
+                  <h4 class="mb-end-1">Phone</h4>
+                  <a href="tel: +123 456 7890">+123 456 7890</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- End Contact -->
+
+      <!-- Start Blog -->
+      <section class="blog | section | pb-end-8" data-section="blog">
+        <div class="wrapper | pb-end-8">
+          <div
+            class="section__heading | wrapper | mb-end-8 text-align-center"
+            data-type="narrow"
+          >
+            <h3 class="section__title">Latest News</h3>
+            <h4 class="section__subtitle">Checkout My Recent Blogs</h4>
+            <p class="section__desc">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil
+              doloremque, et tempore unde soluta consectetur.
+            </p>
+          </div>
+          <ul class="grid-auto-fill">
+            <li>
+              <a href="#" class="blog-card | flow">
+                <div class="blog-img">
+                  <img
+                    src="images/blog-1.jpg"
+                    loading="lazy"
+                    alt="Jim Morisson Says when the musics over turn off the light"
+                  />
+                </div>
+                <div>
+                  <span>Web Development</span>
+                  <p>
+                    Jim Morisson Says when the musics over turn off the light
+                  </p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="blog-card | flow">
+                <div class="blog-img">
+                  <img
+                    src="images/blog-1.jpg"
+                    loading="lazy"
+                    alt="Jim Morisson Says when the musics over turn off the light"
+                  />
+                </div>
+                <div>
+                  <span>Web Development</span>
+                  <p>
+                    Jim Morisson Says when the musics over turn off the light
+                  </p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="blog-card | flow">
+                <div class="blog-img">
+                  <img
+                    src="images/blog-1.jpg"
+                    loading="lazy"
+                    alt="Jim Morisson Says when the musics over turn off the light"
+                  />
+                </div>
+                <div>
+                  <span>Web Development</span>
+                  <p>
+                    Jim Morisson Says when the musics over turn off the light
+                  </p>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- End Blog -->
+    </main>
+
+    <!-- Start Footer -->
+    <footer class="primary-footer">
+      <div class="primary-footer__inner | wrapper">
+        <p>
+          &copy; 2022 <a href="#" class="fw-semibold">Ghostcode</a>. All Rights
+          Reseverd
+        </p>
+        <ul class="flex-group">
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </footer>
+    <!-- End Footer -->
+
+    <!-- Back To Top Button -->
+    <button class="back-top-btn" data-back-top-btn aria-label="back to top">
+      Back Top
+    </button>
+    <!-- Custom Cursor -->
+    <div class="cursor" data-cursor></div>
+
+    <!-- External Libraries JS Files -->
+    <script src="vendors/fontawesome/all.min.js"></script>
+    <!-- Main JS File -->
+    <script src="js/main.js"></script>
+  </body>
+</html>

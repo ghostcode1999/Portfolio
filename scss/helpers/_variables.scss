@@ -1,0 +1,346 @@
+// Helpers
+// ------------------------
+//*** Variables ***//
+//
+// Variables naming should follow the lowercase hyphen-delimited convention
+// Variables should follow the `$component-state-property-size` formula for
+// consistent naming. Ex: $btn-disabled-color
+
+//** Prefix For Classes Names
+//* Format: prefix-
+$prefix: "" !default;
+
+//** Media Queries Breakpoints
+$breakpoints: (
+  sm: 36em,
+  // 576px
+  md: 48em,
+  // 768px
+  lg: 62em,
+  // 992px
+  xl: 75em,
+  // 1200px
+  xxl: 87.5em,
+  // 1400px
+);
+
+//** Colors
+// Global color variables
+$-clr-white: hsl(0 0% 100%);
+$-clr-gray-300: hsl(240 10% 70%);
+$-clr-gray-400: hsl(254 7% 65%);
+$-clr-gray-700: hsl(225 24% 27%);
+$-clr-gray-800: hsl(243 23% 18%);
+$-clr-black: hsl(0 0% 0%);
+//----------------------------------
+$-clr-orange-600: hsl(353 83% 65%);
+$-clr-orange-700: hsl(7 96% 61%);
+$-clr-orange-800: hsl(2 85% 35%);
+//----------------------------------
+$-clr-yellow-400: hsl(50 100% 64%);
+$-clr-yellow-500: hsl(50 100% 54%);
+//--------------------------------------
+$-clr-cyan-400: hsl(196 84% 63%);
+//--------------------------------------
+$-clr-blue-300: hsl(230 52% 63%);
+$-clr-blue-400: hsl(222 88% 55%);
+$-clr-blue-600: hsl(230 80% 39%);
+$-clr-blue-700: hsl(231 83% 25%);
+
+// Color maps for creating utility classes
+$light: (
+  "neutral": (
+    "000": $-clr-white,
+    "300": $-clr-gray-300,
+    "400": $-clr-gray-400,
+    "700": $-clr-gray-700,
+    "800": $-clr-gray-800,
+    "1000": $-clr-black,
+  ),
+  "primary": (
+    "600": $-clr-orange-600,
+    "700": $-clr-orange-700,
+    "800": $-clr-orange-800,
+  ),
+  "secondary": (
+    "300": $-clr-blue-300,
+    "400": $-clr-blue-400,
+    "600": $-clr-blue-600,
+    "700": $-clr-blue-700,
+  ),
+  "yellow": (
+    "400": $-clr-yellow-400,
+    "500": $-clr-yellow-500,
+  ),
+  "cyan": (
+    "400": $-clr-cyan-400,
+  ),
+);
+
+$dark: (
+  "neutral": (
+    "1000": $-clr-white,
+    "800": $-clr-gray-300,
+    "700": $-clr-gray-400,
+    "400": $-clr-gray-700,
+    "300": $-clr-gray-800,
+    "000": $-clr-black,
+  ),
+  "primary": (
+    "600": $-clr-orange-600,
+    "700": $-clr-orange-700,
+    "800": $-clr-orange-800,
+  ),
+  "secondary": (
+    "300": $-clr-blue-300,
+    "400": $-clr-blue-400,
+    "600": $-clr-blue-600,
+    "700": $-clr-blue-700,
+  ),
+  "yellow": (
+    "400": $-clr-yellow-400,
+    "500": $-clr-yellow-500,
+  ),
+  "cyan": (
+    "400": $-clr-cyan-400,
+  ),
+);
+
+// Color variables for general use in the codebase
+$clr-neutral-000: var(--clr-neutral-000);
+$clr-neutral-300: var(--clr-neutral-300);
+$clr-neutral-400: var(--clr-neutral-400);
+$clr-neutral-700: var(--clr-neutral-700);
+$clr-neutral-800: var(--clr-neutral-800);
+$clr-neutral-1000: var(--clr-neutral-1000);
+
+$clr-primary-600: var(--clr-primary-600);
+$clr-primary-700: var(--clr-primary-700);
+$clr-primary-800: var(--clr-primary-800);
+
+$clr-secondary-300: var(--clr-secondary-300);
+$clr-secondary-400: var(--clr-secondary-400);
+$clr-secondary-600: var(--clr-secondary-600);
+$clr-secondary-700: var(--clr-secondary-700);
+
+$clr-yellow-400: var(--clr-yellow-400);
+$clr-yellow-500: var(--clr-yellow-500);
+
+$clr-cyan-400: var(--clr-cyan-400);
+
+// Base used colors
+$clr-text-default: $clr-neutral-000;
+$clr-bg-default: $clr-neutral-800;
+$clr-text-interactive-default: $clr-neutral-000;
+$clr-text-interactive-hover: $clr-primary-800;
+
+//** Typography
+$ff-base: "Poppins", sans-serif;
+
+$font-weights: (
+  "light": 300,
+  "normal": 400,
+  "medium": 500,
+  "semibold": 600,
+  "bold": 700,
+  "black": 900,
+);
+
+$fw-light: var(--fw-light);
+$fw-normal: var(--fw-normal);
+$fw-medium: var(--fw-medium);
+$fw-semibold: var(--fw-semibold);
+$fw-bold: var(--fw-bold);
+$fw-black: var(--fw-black);
+
+// Font sizes map for creating utility classes
+// 1cqi = 1% of a container's inline size.
+$type-scale: (
+  100: clamp(0.64rem, 0.6549rem + -0.0192cqi, 0.651rem),
+  200: clamp(0.7813rem, 0.7747rem + 0.0326cqi, 0.8rem),
+  300: clamp(0.9375rem, 0.9158rem + 0.1087cqi, 1rem),
+  400: clamp(1.125rem, 1.0815rem + 0.2174cqi, 1.25rem),
+  500: clamp(1.35rem, 1.2761rem + 0.3696cqi, 1.5625rem),
+  600: clamp(1.62rem, 1.5041rem + 0.5793cqi, 1.9531rem),
+  700: clamp(1.944rem, 1.771rem + 0.8651cqi, 2.4414rem),
+  800: clamp(2.3328rem, 2.0827rem + 1.2504cqi, 3.0518rem),
+  900: clamp(2.7994rem, 2.4462rem + 1.7658cqi, 3.8147rem),
+  1000: clamp(3.3592rem, 2.8691rem + 2.4507vi, 4.7684rem),
+);
+
+// Font sizes variables for general use in the codebase
+$fs-100: var(--fs-100);
+$fs-200: var(--fs-200);
+$fs-300: var(--fs-300);
+$fs-400: var(--fs-400);
+$fs-500: var(--fs-500);
+$fs-600: var(--fs-600);
+$fs-700: var(--fs-700);
+$fs-800: var(--fs-800);
+$fs-900: var(--fs-900);
+
+//** Spacing
+// Spacers map for creating utility classes
+
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 2,
+  6: $spacer * 2.5,
+  7: $spacer * 3,
+  8: $spacer * 4,
+);
+
+// Spacers variables for general use in the codebase
+$spacer-0: var(--spacer-0);
+$spacer-1: var(--spacer-1);
+$spacer-2: var(--spacer-2);
+$spacer-3: var(--spacer-3);
+$spacer-4: var(--spacer-4);
+$spacer-5: var(--spacer-5);
+$spacer-6: var(--spacer-6);
+$spacer-7: var(--spacer-7);
+$spacer-8: var(--spacer-8);
+
+$letter-spacing-loose: 0;
+
+//** Theme
+$scheme-color: light;
+$active-theme: $light;
+$enable-mq-dark-mode: false;
+
+//** Clip Path
+$clip-paths: (
+  "100": polygon(0 0, 100% 0, 100% 0, 0 0),
+  "200": polygon(0 0, 100% 0, 100% 100%, 0 100%),
+  "300": polygon(0% 0%, 90% 0, 100% 30%, 100% 100%, 0 100%),
+  "400": polygon(90% 0, 100% 40%, 100% 100%, 0 100%, 0 0),
+  "500": polygon(100% 0, 100% 100%, 10% 100%, 0 60%, 0 0),
+  "600": polygon(10% 0, 100% 0, 100% 100%, 0 100%, 0 40%),
+  "700": polygon(100% 0, 100% 60%, 90% 100%, 0 100%, 0 0),
+  "800": polygon(0% 0%, 70% 0, 100% 30%, 100% 100%, 0 100%),
+  "900": polygon(0 0, 90% 0, 100% 100%, 0% 100%),
+);
+
+//** Borders
+$border-radius: (
+  "0": 0,
+  "1": 5px,
+  "2": 10px,
+  "3": 15px,
+  "4": 20px,
+);
+
+$border-radius-0: var(--border-radius-0);
+$border-radius-1: var(--border-radius-1);
+$border-radius-2: var(--border-radius-2);
+$border-radius-3: var(--border-radius-3);
+$border-radius-4: var(--border-radius-4);
+
+//** Box Shadows
+$box-shadow-1: 0 -5px 10px $clr-neutral-400;
+
+//** Transitions
+$transitions: (
+  "50": 50ms ease,
+  "250": 250ms ease,
+  "cubic-out": cubic-bezier(0.33, 0.85, 0.56, 1.02),
+);
+
+$transition-50: var(--transition-50);
+$transition-250: var(--transition-250);
+$transition-cubic-out: var(--transition-cubic-out);
+
+//** Body
+$body-font-family: var(--ff-base);
+$body-font-size: var(--fs-400);
+$body-font-weight: var(--fw-normal);
+$body-line-height: 1.6;
+$body-text-color: $clr-text-default;
+$body-background: $clr-bg-default;
+
+//** Links
+$link-color: $clr-text-interactive-default;
+$link-color-hover: $clr-text-interactive-hover;
+
+//** Headings
+$heading-font-family: var(--ff-base);
+$heading-color-default: inherit;
+$heading-font-weight: var(--fw-black);
+$heading-line-height: 1.2;
+$heading-letter-spacing: $letter-spacing-loose;
+$heading-text-transform: null;
+
+$heading-1-font-size: var(--fs-1000);
+$heading-1-color: $heading-color-default;
+$heading-2-font-size: var(--fs-900);
+$heading-2-color: $heading-color-default;
+$heading-3-font-size: var(--fs-800);
+$heading-3-color: $heading-color-default;
+
+//** Layout
+$grid-gap: $spacer-6;
+$flex-group-gap: $spacer-4;
+
+//** Sections
+$hero-padding-block: clamp(15rem, 15vh, 20rem);
+$section-padding-block: clamp(10rem, 15vh, 15rem);
+
+//** Wrapper
+$wrapper-min-margin-inline: var(--spacer-4);
+$wrapper-max-width: 100%;
+$wrapper-max-width-narrow: 45rem;
+$wrapper-max-width-wide: 75rem;
+
+//** Primary Header
+$primary-header-position: fixed;
+$primary-header-background-color: var(--clr-accent-900);
+$primary-header-color: var(--clr-neutral-000);
+$primary-header-padding: $spacer-4 0;
+$primary-header-margin: 0;
+$primary-header-jusitifcation-small-screens: center;
+$primary-header-jusitifcation-large-screens: space-between;
+$primary-header-alignment: center;
+
+//** Primary Navigation
+$navigation-color: $primary-header-color;
+$navigation-color-hover: $clr-primary-600;
+$navigation-font-size: $fs-300;
+$navigation-font-weight: $fw-normal;
+$navigation-text-transform: null;
+$navigation-gap: $spacer-5;
+$navigation-text-decoration: none;
+
+//** Template Footer
+$footer-padding: 4em;
+$footer-background-color: $clr-neutral-700;
+$footer-text-color: $clr-neutral-300;
+$footer-link-color: $clr-neutral-300;
+$footer-link-color-hover: $clr-neutral-000;
+$footer-link-text-decoration: none;
+$footer-font-size: $fs-300;
+
+//** Buttons
+$button-padding: 1em 2em;
+$button-border: 0;
+$button-border-radius: 100vw;
+$button-background: transparent;
+$button-color: inherit;
+$button-font-size: $fs-300;
+$button-font-weight: $fw-semibold;
+$button-text-transform: null;
+
+$button-primary-color: $clr-neutral-000;
+$button-primary-background: $clr-primary-700;
+$button-primary-color-hover: $clr-neutral-000;
+$button-primary-background-hover: $clr-secondary-700;
+$button-primary-inverse-color-hover: $clr-neutral-800;
+$button-primary-inverse-background-hover: $clr-neutral-000;
+$button-secondary-color: $clr-neutral-000;
+$button-secondary-background: $clr-secondary-600;
+$button-secondary-color-hover: $clr-neutral-000;
+$button-secondary-background-hover: $clr-primary-700;

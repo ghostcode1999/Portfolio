@@ -1,0 +1,64 @@
+// Components
+// ------------------------
+/***
+  * Buttons
+***/
+// This is an example of a button component partial
+@use "../helpers" as *;
+
+//** Buttons specific variables
+// ...
+// … include any button-specific:
+// - functions
+// - mixins
+// - placeholders
+
+@layer components {
+  //** Base styles: basic classes **//
+  .#{$prefix}btn {
+    --_button-padding: #{$button-padding};
+    --_button-border-radius: #{$button-border-radius};
+    --_button-background: #{$button-background};
+    --_button-color: #{$button-color};
+    --_button-font-size: #{$button-font-size};
+    --_button-font-weight: #{$button-font-weight};
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--_button-padding);
+    border-radius: var(--_button-border-radius);
+    background: var(--_button-background);
+    color: var(--_button-color);
+    font-size: var(--_button-font-size);
+    font-weight: var(--_button-font-weight);
+    line-height: 1;
+    overflow: hidden;
+
+    text-decoration: none;
+    cursor: pointer;
+    transition: $transition-250;
+
+    //** Alternate buttons: modifiers **//
+    &[data-variant="primary"] {
+      --_button-background: #{$button-primary-background};
+    }
+
+    &[data-variant="primary-inverse"] {
+      --_button-background: #{$button-primary-background};
+
+      &:is(:hover, :focus-visible) {
+        --_button-background: #{$button-primary-inverse-background-hover};
+        --_button-color: #{$button-primary-inverse-color-hover};
+      }
+    }
+
+    &[data-variant="secondary"] {
+      --_button-background: #{$button-secondary-background};
+
+      &:is(:hover, :focus-visible) {
+        --_button-background: #{$button-secondary-background-hover};
+      }
+    }
+  }
+}

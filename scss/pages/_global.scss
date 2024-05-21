@@ -1,0 +1,66 @@
+// Pages
+// ------------------------
+/*** Pages Global ***/
+// This file can contain global rules shared by all pages
+@use "helpers" as *;
+
+/***
+  * Sections
+  ***/
+.section {
+  padding-block-start: $section-padding-block;
+
+  &__title {
+    margin-block-end: $spacer-2;
+    color: $clr-primary-700;
+    font-size: $fs-400;
+    font-weight: $fw-semibold;
+    line-height: 1.5;
+  }
+
+  &__subtitle {
+    font-size: $fs-600;
+    font-weight: var(--fw-bold);
+    line-height: 1.4;
+
+    @include ls(3px);
+  }
+
+  &__desc {
+    margin-block-start: 1em;
+    color: $clr-neutral-400;
+    font-size: $fs-300;
+  }
+}
+
+/***
+  * Back To Top
+  ***/
+.back-top-btn {
+  writing-mode: vertical-lr;
+  position: fixed;
+  inset-inline-end: 90px;
+  inset-block-end: -40px;
+  z-index: 4;
+  color: $clr-neutral-000;
+  font-size: $fs-300;
+  text-transform: uppercase;
+  padding: 1em;
+  transition: $transition-250;
+
+  &.is-active {
+    inset-block-end: 0;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset-inline-start: 100%;
+    inset-block-start: 50%;
+    transform: translateX(-50%);
+    inline-size: 80px;
+    block-size: 1px;
+    background: $clr-neutral-000;
+    pointer-events: none;
+  }
+}

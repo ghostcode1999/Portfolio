@@ -1,0 +1,34 @@
+// Components
+// ------------------------
+/*----------------------------
+  #PRIMARY FOOTER
+-----------------------------*/
+@use "helpers" as *;
+
+@layer components {
+  .#{$prefix}primary-footer {
+    padding-block: $footer-padding;
+    background: $footer-background-color;
+    color: $footer-text-color;
+    font-size: $fs-300;
+
+    &__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      @include mq(md, max) {
+        flex-direction: column;
+        gap: $spacer-3;
+      }
+    }
+
+    a {
+      transition: $transition-50;
+
+      &:is(:hover, :focus-visible) {
+        color: $footer-link-color-hover;
+      }
+    }
+  }
+}

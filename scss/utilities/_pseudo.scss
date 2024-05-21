@@ -1,0 +1,16 @@
+// Utilities
+// ------------------------
+/*** Pseudo ***/
+//
+@use "helpers" as *;
+
+.has-pseudo {
+  position: relative;
+  z-index: 1;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+  }
+}

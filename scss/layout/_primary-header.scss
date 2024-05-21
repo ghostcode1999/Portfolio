@@ -1,0 +1,39 @@
+// Components
+// ------------------------
+/*----------------------------
+  #PRIMARY HEADER
+-----------------------------*/
+
+@use "helpers" as *;
+
+@layer components {
+  .#{$prefix}primary-header {
+    position: $primary-header-position;
+    @if (
+      $primary-header-position == sticky or $primary-header-position == fixed
+    ) {
+      inset-block-start: 0;
+      inset-inline-start: 0;
+      z-index: 99;
+    }
+    color: $primary-header-color;
+    background-color: $primary-header-background-color;
+    width: 100%;
+    padding: $primary-header-padding;
+    transition: 250ms $transition-cubic-out;
+    
+    &.is-active {
+      padding-block: $spacer-3;
+      background: $clr-neutral-800;
+      box-shadow: $box-shadow-1;
+    }
+    
+    &__inner {
+      position: relative;
+      display: flex;
+      gap: $spacer-4;
+      align-items: $primary-header-alignment;
+      justify-content: $primary-header-jusitifcation-large-screens;
+    }
+  }
+}
